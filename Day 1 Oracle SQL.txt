@@ -1,0 +1,79 @@
+...................................... For Creating Table ........................................................................
+SQL> create table gym_members(id number(5) primary key,name varchar2(20) not null, age number(5) not null,joining_date date not null, exp_date date not null, cost decimal(10,2), city varchar2(20) not null, height float(4) not null,weight number(7) not null, created_at date default sysdate);
+
+......................................For creating Sequence.........................................................................
+SQL> create sequence gym_members_seq
+  2  start with 1
+  3  increment by 1;
+
+Sequence created.
+
+
+......................................inserting values in table........................................................................
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'rita',20,'7-aug-2023', '9-aug-2027', 50000,'kop',6.2,50);
+
+1 row created.
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'lata',35,'7-aug-2023', '9-aug-2027', 70000,'pune',5.2,55);
+
+1 row created.
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'manali',23,'7-aug-2023', '10-aug-2027', 55000,'mumbai',5.6,40);
+
+1 row created.
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'aniket',29,'7-aug-2023', '2-aug-2027', 35000,'delhi',5.6,55);
+
+1 row created.
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'divya',22,'7-aug-2023', '2-aug-2025', 66000,'banglore',6.6,78);
+
+1 row created.
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'radhika',22,'9-aug-2023', '8-nov-2023', 25000,'pune',6.6,48);
+
+
+SQL> insert into gym_members(id, name,age, joining_date,exp_date,cost,city,height,weight) values(users_seq.nextval,'raj',26,'9-jan-2023','9-april-2023',25000,'mumbai',6.6,48);
+
+
+
+SQL> select * from gym_members;
+
+        ID NAME                        AGE JOINING_D EXP_DATE        COST CITY                     HEIGHT     WEIGHT CREATED_A
+---------- -------------------- ---------- --------- --------- ---------- -------------------- ---------- ---------- ---------
+        16 rita                         20 07-AUG-23 09-AUG-27      50000 kop                         6.2         50 12-OCT-23
+        17 lata                         35 07-AUG-23 09-AUG-27      70000 pune                        5.2         55 12-OCT-23
+        18 manali                       23 07-AUG-23 10-AUG-27      55000 mumbai                      5.6         40 12-OCT-23
+        19 aniket                       29 07-AUG-23 02-AUG-27      35000 delhi                       5.6         55 12-OCT-23
+        20 divya                        22 07-AUG-23 02-AUG-25      66000 banglore                    6.6         78 12-OCT-23
+        21 radhika                      22 09-AUG-23 08-NOV-23      25000 pune                        6.6         48 12-OCT-23
+        27 raj                          26 09-JAN-23 09-APR-23      25000 mumbai                      6.6         48 12-OCT-23
+
+
+
+1. select * from gym_members where cost > 20000;
+
+
+2. select * from gym_members where city='pune';
+
+
+3. select * from users where city='mumbai' and age >24;
+
+
+4. select * from gym_members where MONTHS_BETWEEN(exp_date,joining_date) =3;
+
+
+5. select name, (weight/(height*height)) AS BMI from gym_members;
+
+
+6. select * from gym_members order by height desc;
+
+
+7. select name ,age ,(Extract(Year from sysdate)-age) As birth_year from gym_members where city='mumbai';
+
+   
+
+
+
+
+
